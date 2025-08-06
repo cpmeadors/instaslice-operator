@@ -29,7 +29,7 @@ func gpuSlicePodSpec(profile string, mode instav1.EmulatedMode) corev1.PodSpec {
 	image := "quay.io/prometheus/busybox"
 	command := []string{"sh", "-c", "env && sleep 3600"}
 	if mode == instav1.EmulatedModeDisabled {
-		image = "nvcr.io/nvidia/k8s/cuda-sample:vectoradd-cuda12.5.0-ubi8"
+		image = "quay.io/dasoperator/cuda-sample:vectoradd-cuda12.5.0-ubi"
 		command = []string{"sh", "-c", "/cuda-samples/vectorAdd && env && sleep 3600"}
 	}
 	return corev1.PodSpec{
